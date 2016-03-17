@@ -20,6 +20,7 @@ public class Test {
 
     /**
      * 建造者模式
+     * 适用于构造参数过多的对象时使用
      */
     private static void testBuilder() {
         NutritionFacts nutritionFacts
@@ -31,7 +32,12 @@ public class Test {
     }
 
     /**
-     * 工厂模式
+     * 简单工厂模式
+     * 优点：将对象的创建统一起来有利于维护和整体把控，对扩展开放，对修改封闭
+     * 对象的创建和对象本身业务处理分离可以降低系统的耦合度
+     *
+     * 缺点：工厂类集中了所有产品创建逻辑，一旦不能正常工作，整个系统都要受到影响
+     * 使用简单工厂模式将会增加系统中类的个数，在一定程序上增加了系统的复杂度和理解难度
      */
     private static void testFactory() {
         AudiFactory factory = new AudiCarFactory();
