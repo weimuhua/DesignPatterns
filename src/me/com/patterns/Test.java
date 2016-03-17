@@ -1,5 +1,8 @@
 package me.com.patterns;
 
+import me.com.patterns.abstructfactory.CarFactory;
+import me.com.patterns.abstructfactory.Q3Factory;
+import me.com.patterns.abstructfactory.Q7Factory;
 import me.com.patterns.builder.NutritionFacts;
 import me.com.patterns.factory.*;
 
@@ -11,6 +14,8 @@ public class Test {
         testBuilder();
 
         testFactory();
+
+        testAbstractFactory();
     }
 
     /**
@@ -40,5 +45,20 @@ public class Test {
         A6.selfNavigation();
 
         System.out.println();
+    }
+
+    /**
+     * 抽象工厂模式
+     */
+    private static void testAbstractFactory() {
+        CarFactory q3Factory = new Q3Factory();
+        System.out.println("produce Q3");
+        q3Factory.createTire().tire();
+        q3Factory.createEngine().engine();
+
+        CarFactory q7Factory = new Q7Factory();
+        System.out.println("produce Q7");
+        q7Factory.createTire().tire();
+        q7Factory.createEngine().engine();
     }
 }
