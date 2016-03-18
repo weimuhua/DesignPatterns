@@ -5,6 +5,9 @@ import me.com.patterns.abstructfactory.Q3Factory;
 import me.com.patterns.abstructfactory.Q7Factory;
 import me.com.patterns.builder.NutritionFacts;
 import me.com.patterns.factory.*;
+import me.com.patterns.strategy.BusStrategy;
+import me.com.patterns.strategy.SubwayStrategy;
+import me.com.patterns.strategy.TrafficCalculator;
 
 public class Test {
 
@@ -16,6 +19,8 @@ public class Test {
         testFactory();
 
         testAbstractFactory();
+
+        testStrategyPattern();
     }
 
     /**
@@ -35,7 +40,7 @@ public class Test {
      * 简单工厂模式
      * 优点：将对象的创建统一起来有利于维护和整体把控，对扩展开放，对修改封闭
      * 对象的创建和对象本身业务处理分离可以降低系统的耦合度
-     *
+     * <p>
      * 缺点：工厂类集中了所有产品创建逻辑，一旦不能正常工作，整个系统都要受到影响
      * 使用简单工厂模式将会增加系统中类的个数，在一定程序上增加了系统的复杂度和理解难度
      */
@@ -66,5 +71,24 @@ public class Test {
         System.out.println("produce Q7");
         q7Factory.createTire().tire();
         q7Factory.createEngine().engine();
+
+        System.out.println();
+    }
+
+    /**
+     * 策略模式
+     * 策略模式主要用来抽象在相同的行为下不同的具体视线，很好地演示了开闭原则。
+     * <p>
+     * 优点：结构清晰明了，耦合度低，便于扩展
+     * 缺点：随着策略增多，子类的数量会增多
+     */
+    private static void testStrategyPattern() {
+        TrafficCalculator calculator = new TrafficCalculator(new SubwayStrategy());
+        calculator.calculate(50);
+
+        calculator.setStrategy(new BusStrategy());
+        calculator.calculate(50);
+
+        System.out.println();
     }
 }
