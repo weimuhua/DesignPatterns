@@ -5,6 +5,8 @@ import me.com.patterns.abstructfactory.Q3Factory;
 import me.com.patterns.abstructfactory.Q7Factory;
 import me.com.patterns.builder.NutritionFacts;
 import me.com.patterns.factory.*;
+import me.com.patterns.state.PowerOnState;
+import me.com.patterns.state.TvController;
 import me.com.patterns.strategy.BusStrategy;
 import me.com.patterns.strategy.SubwayStrategy;
 import me.com.patterns.strategy.TrafficCalculator;
@@ -21,6 +23,8 @@ public class Test {
         testAbstractFactory();
 
         testStrategyPattern();
+
+        testStatePattern();
     }
 
     /**
@@ -90,5 +94,28 @@ public class Test {
         calculator.calculate(50);
 
         System.out.println();
+    }
+
+    /**
+     * 状态模式
+     * 当一个对象的行为取决于它的状态时，代码中包含大量与对象状态有关的条件语句时，可以考虑使用状态模式
+     * <p>
+     * 状态模式的使用会增加类和对象的个数
+     */
+    private static void testStatePattern() {
+        TvController controller = new TvController();
+
+        controller.setTvState(new PowerOnState());
+        controller.powerOn();
+        controller.nextChannel();
+        controller.prevChannel();
+        controller.turnUp();
+        controller.turnUp();
+
+        controller.powerOff();
+        controller.nextChannel();
+        controller.prevChannel();
+        controller.turnUp();
+        controller.turnUp();
     }
 }
