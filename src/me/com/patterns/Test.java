@@ -30,6 +30,9 @@ public class Test {
 
         /** 状态模式 */
         testStatePattern();
+
+        /** 迭代器模式 */
+        testIteratorPattern();
     }
 
     /**
@@ -122,5 +125,13 @@ public class Test {
         controller.prevChannel();
         controller.turnUp();
         controller.turnUp();
+    }
+
+    /**
+     * 迭代器模式
+     * 多个对象可以处理同一请求,具体由哪个对象处理则在运行时动态决定
+     */
+    private static void testIteratorPattern() {
+
     }
 }
