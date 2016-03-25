@@ -16,14 +16,19 @@ public class Test {
     public static void main(String[] args) {
         System.out.println("Hello IntelliJ Idea!");
 
+        /** 建造者模式 */
         testBuilder();
 
+        /** 简单工厂模式 */
         testFactory();
 
+        /** 抽象工厂模式 */
         testAbstractFactory();
 
+        /** 策略模式 */
         testStrategyPattern();
 
+        /** 状态模式 */
         testStatePattern();
     }
 
