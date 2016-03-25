@@ -10,7 +10,7 @@ import java.util.ArrayList;
 public class WordDocument implements Cloneable {
 
     private String text;
-    private ArrayList<String> images = new ArrayList<>();
+    private ArrayList<String> images = new ArrayList<String>();
 
     public WordDocument() {
         System.out.printf("WordDocument construction");
@@ -21,7 +21,7 @@ public class WordDocument implements Cloneable {
         WordDocument doc = (WordDocument) super.clone();
         doc.text = this.text;
         //doc.images = images;//浅拷贝
-        doc.images = new ArrayList<>(this.images);//深拷贝
+        doc.images = new ArrayList<String>(this.images);//深拷贝
         return doc;
     }
 
