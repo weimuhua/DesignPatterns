@@ -1,4 +1,4 @@
-package me.com.patterns.iterator;
+package me.com.patterns.chainofresponsibility;
 
 public class ConcreteHandler2 extends Handler {
 

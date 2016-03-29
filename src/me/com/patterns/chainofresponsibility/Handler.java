@@ -1,4 +1,4 @@
-package me.com.patterns.iterator;
+package me.com.patterns.chainofresponsibility;
 
 public abstract class Handler {
 

@@ -6,8 +6,8 @@ import me.com.patterns.abstructfactory.Q7Factory;
 import me.com.patterns.builder.NutritionFacts;
 import me.com.patterns.command.*;
 import me.com.patterns.factory.*;
-import me.com.patterns.iterator.ConcreteHandler1;
-import me.com.patterns.iterator.ConcreteHandler2;
+import me.com.patterns.chainofresponsibility.ConcreteHandler1;
+import me.com.patterns.chainofresponsibility.ConcreteHandler2;
 import me.com.patterns.state.PowerOnState;
 import me.com.patterns.state.TvController;
 import me.com.patterns.strategy.BusStrategy;
@@ -35,7 +35,7 @@ public class Test {
         testStatePattern();
 
         /** 迭代器模式 */
-        testIteratorPattern();
+        testChainOfResponsibilityPattern();
 
         /** 解释器模式，使用场景较少，不具体实现并测试 */
 
@@ -138,13 +138,13 @@ public class Test {
     }
 
     /**
-     * 迭代器模式
+     * 责任链模式
      * 多个对象可以处理同一请求,具体由哪个对象处理则在运行时动态决定
      * 可以对请求者和处理者关系解耦，提高代码灵活性
      * <p>
      * 缺点在于需要对链中请求处理者进行遍历，如果处理者太多则会影响性能
      */
-    private static void testIteratorPattern() {
+    private static void testChainOfResponsibilityPattern() {
         ConcreteHandler1 handler1 = new ConcreteHandler1();
         ConcreteHandler2 handler2 = new ConcreteHandler2();
 
