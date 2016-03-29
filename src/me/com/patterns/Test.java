@@ -8,6 +8,8 @@ import me.com.patterns.command.*;
 import me.com.patterns.factory.*;
 import me.com.patterns.chainofresponsibility.ConcreteHandler1;
 import me.com.patterns.chainofresponsibility.ConcreteHandler2;
+import me.com.patterns.memento.CallOnDuty;
+import me.com.patterns.memento.Caretaker;
 import me.com.patterns.state.PowerOnState;
 import me.com.patterns.state.TvController;
 import me.com.patterns.strategy.BusStrategy;
@@ -41,6 +43,11 @@ public class Test {
 
         /** 命令模式 */
         testCommandPattern();
+
+        /** 观察者模式，Android中很常见,比较熟悉,不具体实现并测试 */
+
+        /** 备忘录模式 */
+        testMementoPattern();
     }
 
     /**
@@ -170,6 +177,24 @@ public class Test {
         button.toRight();
         button.transformCommand();
         button.fallCommand();
+
+        System.out.println();
+    }
+
+    /**
+     * Memento Pattern, 备忘录模式
+     * */
+    private static void testMementoPattern() {
+        CallOnDuty game = new CallOnDuty();
+        game.play();
+
+        Caretaker caretaker = new Caretaker();
+        caretaker.setMemento(game.createMemento());
+
+        game.quit();
+
+        CallOnDuty newGame = new CallOnDuty();
+        newGame.restore(caretaker.getMemento());
 
         System.out.println();
     }
