@@ -4,6 +4,7 @@ import me.com.patterns.abstructfactory.CarFactory;
 import me.com.patterns.abstructfactory.Q3Factory;
 import me.com.patterns.abstructfactory.Q7Factory;
 import me.com.patterns.builder.NutritionFacts;
+import me.com.patterns.command.*;
 import me.com.patterns.factory.*;
 import me.com.patterns.iterator.ConcreteHandler1;
 import me.com.patterns.iterator.ConcreteHandler2;
@@ -35,6 +36,11 @@ public class Test {
 
         /** 迭代器模式 */
         testIteratorPattern();
+
+        /** 解释器模式，使用场景较少，不具体实现并测试 */
+
+        /** 命令模式 */
+        testCommandPattern();
     }
 
     /**
@@ -146,6 +152,24 @@ public class Test {
         handler2.next = handler1;
 
         handler1.handle("ConcreteHandler2");
+
+        System.out.println();
+    }
+
+    /**
+     * Command Pattern, 命令模式
+     * 将一个请求封装成一个对象，从而让用户使用不同的请求把客户端参数化
+     * <p>
+     * 缺点：大量的衍生类的创建，个人感觉：华而不实
+     */
+    private static void testCommandPattern() {
+        TetrisMachine machine = new TetrisMachine();
+        Buttons button = new Buttons(new LeftCommand(machine), new RightCommand(machine),
+                new FallCommand(machine), new TransformCommand(machine));
+        button.toLeft();
+        button.toRight();
+        button.transformCommand();
+        button.fallCommand();
 
         System.out.println();
     }
