@@ -21,8 +21,12 @@ public class Test {
     public static void main(String[] args) {
         System.out.println("Hello IntelliJ Idea!");
 
+        /** 单例模式，使用场景较多,比较熟悉，不具体实现并测试 */
+
         /** 建造者模式 */
         testBuilder();
+
+        /** 原型模式，使用场景较少，不具体实现并测试,见WordDocument.java */
 
         /** 简单工厂模式 */
         testFactory();
