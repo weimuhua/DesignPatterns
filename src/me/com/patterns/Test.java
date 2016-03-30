@@ -48,6 +48,13 @@ public class Test {
 
         /** 备忘录模式 */
         testMementoPattern();
+
+        /**
+         * 迭代器模式，用于访问容器。
+         * 容器类不仅要维护自身内部的数据元素而且还要对外提供遍历的接口方法
+         * 因为遍历状态的存储问题还不能对同一个容器进行多个遍历
+         * 迭代器模式就为了解决以上问题的
+         */
     }
 
     /**
@@ -183,7 +190,7 @@ public class Test {
 
     /**
      * Memento Pattern, 备忘录模式
-     * */
+     */
     private static void testMementoPattern() {
         CallOnDuty game = new CallOnDuty();
         game.play();
