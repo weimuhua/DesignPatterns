@@ -8,6 +8,9 @@ import me.com.patterns.command.*;
 import me.com.patterns.factory.*;
 import me.com.patterns.chainofresponsibility.ConcreteHandler1;
 import me.com.patterns.chainofresponsibility.ConcreteHandler2;
+import me.com.patterns.mediator.ConcreteMediator;
+import me.com.patterns.mediator.HouseOwner;
+import me.com.patterns.mediator.Tenant;
 import me.com.patterns.memento.CallOnDuty;
 import me.com.patterns.memento.Caretaker;
 import me.com.patterns.state.PowerOnState;
@@ -63,6 +66,9 @@ public class Test {
         /** 模板方法模式，工作中较常见，比较熟悉，不具体实现并测试 */
 
         /** 访问者模式，工作中较不常见，比较复杂，不具体实现并测试 */
+
+        /** 中介者模式 */
+        testMediatorPattern();
     }
 
     /**
@@ -210,6 +216,31 @@ public class Test {
 
         CallOnDuty newGame = new CallOnDuty();
         newGame.restore(caretaker.getMemento());
+
+        System.out.println();
+    }
+
+    /**
+     * 中介者模式
+     * 用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用
+     * 从而使其耦合松散，而且可以独立地改变它们之间的交互
+     * <p>
+     * 缺点：由于中介者对象封装了系统中对象之间的相互关系，导致其变得非常复杂，使得系统维护比较困难。
+     */
+    private static void testMediatorPattern() {
+        //一个房主、一个租房者、一个中介机构
+        ConcreteMediator mediator = new ConcreteMediator();
+
+        //房主和租房者只需要知道中介机构即可
+        HouseOwner houseOwner = new HouseOwner("张三", mediator);
+        Tenant tenant = new Tenant("李四", mediator);
+
+        //中介结构要知道房主和租房者
+        mediator.setHouseOwner(houseOwner);
+        mediator.setTenant(tenant);
+
+        tenant.contract("听说你那里有三室的房主出租.....");
+        houseOwner.contract("是的!请问你需要租吗?");
 
         System.out.println();
     }
