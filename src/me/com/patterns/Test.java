@@ -13,6 +13,8 @@ import me.com.patterns.mediator.HouseOwner;
 import me.com.patterns.mediator.Tenant;
 import me.com.patterns.memento.CallOnDuty;
 import me.com.patterns.memento.Caretaker;
+import me.com.patterns.proxy.ProxySubject;
+import me.com.patterns.proxy.RealSubject;
 import me.com.patterns.state.PowerOnState;
 import me.com.patterns.state.TvController;
 import me.com.patterns.strategy.BusStrategy;
@@ -69,6 +71,9 @@ public class Test {
 
         /** 中介者模式 */
         testMediatorPattern();
+
+        /** 代理模式 */
+        testProxyPattern();
     }
 
     /**
@@ -241,6 +246,21 @@ public class Test {
 
         tenant.contract("听说你那里有三室的房主出租.....");
         houseOwner.contract("是的!请问你需要租吗?");
+
+        System.out.println();
+    }
+
+    /**
+     * 代理模式
+     * 当无法或不想直接访问某个对象,或者访问某个对象存在困难时
+     * 可以通过一个代理对象来间接访问
+     */
+    private static void testProxyPattern() {
+        RealSubject real = new RealSubject();
+
+        ProxySubject proxy = new ProxySubject(real);
+
+        proxy.visit();
 
         System.out.println();
     }
