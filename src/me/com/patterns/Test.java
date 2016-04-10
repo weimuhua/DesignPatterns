@@ -69,8 +69,6 @@ public class Test {
 
         /** 中介者模式 */
         testMediatorPattern();
-
-        /** 模板方法模式, 工作中较常见, 比较熟悉, 不具体实现并测试 */
     }
 
     /**
